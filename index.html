@@ -1034,7 +1034,7 @@ function popupHTML(p){
       ? `<div class="ynote"><div class="ynlab">${p.b==="visited"?"Your note":"Note"}${p.revY?` \u00b7 ${esc(p.revY)}`:""}</div><p>${esc(p.rev)}</p></div>`
       : (p.d?`<p class="note">${esc(p.d)}</p>`:"")}
     <div class="hr"></div>
-    <div class="meta">${p.k?`<b>${esc(p.k)}</b><br>`:""}${hrs?`<span style="color:${hrs.closed?'#ff8f8f':'#9aa1a9'}">${esc(hrs.txt)}</span><br>`:""}${p.addr?esc(p.addr):""}${p.ph?`<br><a class="tel" href="tel:${String(p.ph).replace(/[^+\d]/g,"")}">${esc(p.ph)}</a>`:""}</div>
+    <div class="meta">${p.k?`<b>${esc(p.k)}</b><br>`:""}${hrs?`<span style="color:${hrs.closed?'#ff8f8f':'#9aa1a9'}">${esc(hrs.txt)}</span><br>`:""}${p.addr?esc(p.addr):""}${p.ph?`<br><a class="tel" href="tel:${(()=>{const d=String(p.ph).replace(/\D/g,"");return d.length===11&&d[0]==="0"?"+91"+d.slice(1):d.length===10?"+91"+d:"+"+d})()}">${esc(p.ph)}</a>`:""}</div>
     ${p.u?`<a class="go" href="${esc(p.u)}" target="_blank" rel="noopener"><span>Open in Google Maps</span><span>↗</span></a>`:""}
   </div>`;
 }
